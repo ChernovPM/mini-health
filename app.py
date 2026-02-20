@@ -83,7 +83,6 @@ def healthz():
 
 @app.route("/metrics")
 def metrics():
-    # Update gauges at scrape-time
     PROCESS_UPTIME.set(time.time() - START_TIME)
     CPU_PERCENT.set(psutil.cpu_percent(interval=None))
     MEMORY_PERCENT.set(psutil.virtual_memory().percent)
